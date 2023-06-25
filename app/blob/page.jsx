@@ -1,8 +1,10 @@
 'use client'
 
+import Menu from '@/components/Menu'
 import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 
-const Blob = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Blob), { ssr: false })
+const Lemuria = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Lemuria), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => (
@@ -18,23 +20,55 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
     </div>
   ),
 })
+
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
+  const [animatedText, setAnimatedText] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const text =
+    '  When a person is open-minded, receptive, and aligned with the flow of the universe, they are more likely to encounter unexpected and positive synchronicities or meaningful coincidences.'
+
+  useEffect(() => {
+    let typingTimeout;
+
+    function typeText() {
+      if (currentIndex < text.length) {
+        setAnimatedText((prevText) => prevText + text[currentIndex])
+        setCurrentIndex((prevIndex) => prevIndex + 1)
+        typingTimeout = setTimeout(typeText, 2000)
+      }
+    }
+
+    typeText()
+
+    return () => {
+      if (typingTimeout) {
+        // Clear the typing timeout when the component is unmounted
+        clearTimeout(typingTimeout)
+      }
+    }
+  }, [currentIndex])
+
   return (
     <>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
+      <Menu />
+      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5 max-h-screen'>
         <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-          <p className='w-full uppercase'>Next + React Three Fiber</p>
-          <h1 className='my-4 text-5xl font-bold leading-tight'>Next 3D Starter</h1>
-          <p className='mb-8 text-2xl leading-normal'>A minimalist starter for React, React-three-fiber and Threejs.</p>
+          <p className='w-full uppercase italic font-display'>Laws of the Universe #7</p>
+          <h1 className='my-4 text-5xl font-bold font-display leading-tight'>SERENDIPITY</h1>
+          <p className='mb-8 text-2xl font-serif leading-normal'>The Law of Serendipity</p>
         </div>
       </div>
+      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
+        <p className='animated-text mb-8 text-3xl leading-normal font-serif'>{animatedText}</p>
+      </div>
 
-      <View className='absolute top-0 flex h-screen w-full flex-col items-center justify-center'>
-        <Blob />
-        <Common />
+      <View className='absolute top-0 flex h-[90%] w-full flex-col items-center justify-center'>
+        <Lemuria scale={0.25} position={[0, -1.5, 0]} rotation={[0.0, 0, 0]} route='/' className='cursor-pointer' />
+        <Common color="" />
       </View>
     </>
   )
 }
+

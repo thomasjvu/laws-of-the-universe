@@ -16,7 +16,8 @@ export const Blob = ({ route = '/', ...props }) => {
       onClick={() => router.push(route)}
       onPointerOver={() => hover(true)}
       onPointerOut={() => hover(false)}
-      {...props}>
+      {...props}
+    >
       <sphereGeometry args={[1, 64, 64]} />
       <MeshDistortMaterial roughness={0} color={hovered ? 'hotpink' : '#1fb2f5'} />
     </mesh>
@@ -61,8 +62,30 @@ export function Duck(props) {
 
   return <primitive object={scene} {...props} />
 }
+
 export function Dog(props) {
   const { scene } = useGLTF('/dog.glb')
+
+  return <primitive object={scene} {...props} />
+}
+
+export function Lemuria(props) {
+  const { scene } = useGLTF('/lemuria.glb')
+
+  useFrame((state, delta) => {
+    scene.rotation.x += delta * 0.25
+    // scene.rotation.y += delta
+    scene.rotation.z += delta * 0.25
+  })
+
+  // modify material properties
+  scene.traverse((child) => {
+    if (child.isMesh) {
+      child.material.color.set('#000000')
+      child.material.transparent = true
+      child.material.opacity = 1
+    }
+  })
 
   return <primitive object={scene} {...props} />
 }
