@@ -2,6 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --lotus-white: #fdfaeb;
+    --lotus-black: #272727;
+}
+
+/**
+* Fonts
+**/
+
+@font-face {
+    font-family: 'Crimson';
+    src: url('/fonts/CrimsonText-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Crimson';
+    src: url('/fonts/CrimsonText-Regular.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Crimson';
+    src: url('/fonts/CrimsonText-SemiBold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Crimson';
+    src: url('/fonts/CrimsonText-SemiBoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Crimson';
+    src: url('/fonts/CrimsonText-Bold.ttf');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Crimson';
+    src: url('/fonts/CrimsonText-BoldItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Cal Sans';
+    src: url('/fonts/CalSans.ttf');
+}
+
+/***
+* ***
+*/
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -15,5 +66,10 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: var(--lotus-white);
   }
 }
+
+/***
+* Animations
+***/
