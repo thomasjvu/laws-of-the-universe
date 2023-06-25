@@ -1,4 +1,4 @@
-import { SimpleIconsTwitter, SimpleIconsBuymeacoffee, SimpleIconsFacebook } from "./Icons"
+import { SimpleIconsTwitter, SimpleIconsBuymeacoffee, SimpleIconsFacebook, SimpleIconsKofi } from "./Icons"
 
 const SocialIcons = () => {
 
@@ -7,11 +7,11 @@ const SocialIcons = () => {
             <a href="https://facebook.com/universa" target="_blank">
                 <SimpleIconsFacebook className="hover:text-stone-700" />
             </a>
-            <a href="https://buymeacoffee.com/universa" target="_blank">
-                <SimpleIconsBuymeacoffee className="hover:text-stone-700" />
-            </a>
             <a href="https://twitter.com/_universa_" target="_blank">
                 <SimpleIconsTwitter className="hover:text-stone-700" />
+            </a>
+            <a href="https://kofi.com/kyoma" target="_blank">
+                <SimpleIconsKofi className="hover:text-stone-700" />
             </a>
         </div>
     )

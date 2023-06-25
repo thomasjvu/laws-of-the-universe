@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 
 import Menu from '@/components/Menu'
 import SocialIcons from '@/components/SocialIcons'
+import Link from 'next/link'
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
 const Lemuria = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Lemuria), { ssr: false })
@@ -31,12 +32,14 @@ export default function Page() {
             <Menu />
             <main className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5'>
                 {/* jumbo */}
-                <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left bg-stone-900 text-white rounded-2xl'>
-                    <p className='w-full uppercase font-serif italic'>Laws of the Universe —</p>
-                    <h1 className='my-4 text-7xl font-bold leading-tight font-display tracking-widest'>LOTUS</h1>
-                    <p className='mb-8 text-3xl leading-normal font-serif'>Learn about the Laws of the Universe</p>
+                <div className='flex w-full flex-col items-start justify-center rounded-2xl bg-stone-900 p-12 text-center text-white md:w-2/5 md:text-left'>
+                    <p className='w-full font-serif uppercase italic'>Laws of the Universe —</p>
+                    <h1 className='my-4 font-display text-7xl font-bold leading-tight tracking-widest'>LOTUS</h1>
+                    <Link href='/laws' className='mb-8 font-serif text-3xl leading-normal hover:text-stone-700'>
+                        Learn about the Laws of the Universe
+                    </Link>
                     {/* social icons */}
-                    <div className="flex justify-end w-full">
+                    <div className='flex w-full justify-end'>
                         <SocialIcons />
                     </div>
                 </div>
