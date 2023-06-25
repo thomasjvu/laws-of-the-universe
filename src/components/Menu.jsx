@@ -22,16 +22,21 @@ const Menu = () => {
                                 <Link href="/">
                                     <li className="text-2xl uppercase font-display hover:text-stone-700">Home</li>
                                 </Link>
-                                <Link href="/about">
-                                    <li className="text-2xl uppercase font-display hover:text-stone-700">About</li>
-                                </Link>
-                                <Link href="/random">
-                                    <li className="text-2xl uppercase font-display hover:text-stone-700">Random</li>
+                                <Link href="/laws">
+                                    <li className="text-2xl uppercase font-display hover:text-stone-700">Laws</li>
                                 </Link>
                                 <Link href="/store">
                                     <li className="text-2xl uppercase font-display hover:text-stone-700">Store</li>
                                 </Link>
-                                <SocialIcons />
+                                <Link href="/credits">
+                                    <li className="text-2xl uppercase font-display hover:text-stone-700">Credits</li>
+                                </Link>
+                                {/* Search Bar */}
+                                <input id="" type="search" name="" className="rounded-full bg-black text-white px-8 py-4" placeholder="search..."/>
+                                {/* Social Icons */}
+                                <div class="flex justify-center">
+                                    <SocialIcons />
+                                </div>
                             </ul>
                         </div>
                     </div>
