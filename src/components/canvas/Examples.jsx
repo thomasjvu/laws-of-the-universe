@@ -81,7 +81,7 @@ export function Lemuria(props) {
   // modify material properties
   scene.traverse((child) => {
     if (child.isMesh) {
-      child.material.color.set('#000000')
+      child.material.color.set('#1c1917')
       child.material.transparent = true
       child.material.opacity = 1
     }
