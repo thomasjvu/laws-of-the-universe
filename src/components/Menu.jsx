@@ -22,13 +22,13 @@ const Menu = () => {
                                 <Link href="/">
                                     <li className="text-2xl uppercase font-display hover:text-stone-700">Home</li>
                                 </Link>
-                                <Link href="/">
+                                <Link href="/about">
                                     <li className="text-2xl uppercase font-display hover:text-stone-700">About</li>
                                 </Link>
-                                <Link href="/">
+                                <Link href="/random">
                                     <li className="text-2xl uppercase font-display hover:text-stone-700">Random</li>
                                 </Link>
-                                <Link href="/">
+                                <Link href="/store">
                                     <li className="text-2xl uppercase font-display hover:text-stone-700">Store</li>
                                 </Link>
                                 <SocialIcons />
