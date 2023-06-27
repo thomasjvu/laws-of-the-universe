@@ -30,7 +30,19 @@ export default function Page() {
     const text =
         '  When a person is open-minded, receptive, and aligned with the flow of the universe, they are more likely to encounter unexpected and positive synchronicities or meaningful coincidences.'
 
+    // fetch from DB
+    const getData = async () => {
+        const query = await fetch('/api/laws') 
+        const response = await query.json()
+        console.log('Response from API', response)
+    }
+
     useEffect(() => {
+        getData()
+    }, [])
+
+    useEffect(() => {
+
         let typingTimeout
 
         function typeText() {
@@ -49,6 +61,8 @@ export default function Page() {
                 clearTimeout(typingTimeout)
             }
         }
+
+
     }, [currentIndex])
 
     return (
@@ -56,9 +70,9 @@ export default function Page() {
             <Menu />
             <div className='mx-auto flex max-h-screen w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5'>
                 <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-                    <p className='w-full font-display uppercase italic'>Law of the Universe #27</p>
+                    <p className='w-full font-mono uppercase'>Law of the Universe #27</p>
                     <h1 className='my-4 font-display text-5xl font-bold leading-tight'>SERENDIPITY</h1>
-                    <p className='mb-8 font-serif text-2xl leading-normal'>The Law of Serendipity</p>
+                    <p className='mb-8 font-serif text-2xl italic leading-normal'>"The Law of Serendipity"</p>
                 </div>
             </div>
             <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>

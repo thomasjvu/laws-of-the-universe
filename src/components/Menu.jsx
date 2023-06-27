@@ -23,7 +23,7 @@ const Menu = () => {
                                     <li className="text-2xl uppercase font-display hover:text-stone-700">Home</li>
                                 </Link>
                                 <Link href="/laws">
-                                    <li className="text-2xl uppercase font-display hover:text-stone-700">Laws</li>
+                                    <li className="text-2xl uppercase font-display hover:text-stone-700">The Laws</li>
                                 </Link>
                                 <Link href="/store">
                                     <li className="text-2xl uppercase font-display hover:text-stone-700">Store</li>
