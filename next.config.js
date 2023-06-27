@@ -60,6 +60,7 @@ const nextConfig = {
 const KEYS_TO_OMIT = ['webpackDevMiddleware', 'configOrigin', 'target', 'analyticsId', 'webpack5', 'amp', 'assetPrefix']
 
 module.exports = (_phase, { defaultConfig }) => {
+
   const plugins = [[withPWA], [withBundleAnalyzer, {}]]
 
   const wConfig = plugins.reduce((acc, [plugin, config]) => plugin({ ...acc, ...config }), {
@@ -76,3 +77,8 @@ module.exports = (_phase, { defaultConfig }) => {
 
   return finalConfig
 }
+
+module.exports = {
+    pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts']
+}
+
