@@ -6,6 +6,7 @@ module.exports = {
     fontFamily: {
       display: ['Cal Sans', 'Inter', 'sans-serif'],
       serif: ['Crimson', 'Georgia', 'Garamond', 'serif'],
+      mono: ['Ubuntu Mono', 'Cascadia Code', 'monospace']
     },
     extend: {},
   },

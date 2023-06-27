@@ -24,6 +24,7 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
+
     const [animatedText, setAnimatedText] = useState('')
     const [currentIndex, setCurrentIndex] = useState(0)
     const text =
@@ -55,7 +56,7 @@ export default function Page() {
             <Menu />
             <div className='mx-auto flex max-h-screen w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5'>
                 <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-                    <p className='w-full font-display uppercase italic'>Laws of the Universe #7</p>
+                    <p className='w-full font-display uppercase italic'>Law of the Universe #27</p>
                     <h1 className='my-4 font-display text-5xl font-bold leading-tight'>SERENDIPITY</h1>
                     <p className='mb-8 font-serif text-2xl leading-normal'>The Law of Serendipity</p>
                 </div>
@@ -63,12 +64,12 @@ export default function Page() {
             <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
                 <p className='animated-text mb-8 font-serif text-3xl leading-normal'>{animatedText}</p>
             </div>
-            <div className='mx-auto flex max-h-screen w-full flex-col flex-wrap items-center justify-between md:flex-row lg:w-4/5 '>
-                <span>Previous</span>
-                <span>Next</span>
+            <div className='mx-auto flex h-1/2 w-full flex-col flex-wrap items-end justify-between md:flex-row lg:w-4/5 font-mono'>
+                <button>Previous</button>
+                <button>Next</button>
             </div>
 
-            <View className='absolute top-0 flex h-[90%] w-full flex-col items-center justify-center'>
+            <View className='absolute top-0 flex h-[90%] w-full flex-col items-center justify-center z-[-1]'>
                 <Lemuria
                     scale={0.25}
                     position={[0, -1.5, 0]}
