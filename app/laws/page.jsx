@@ -24,7 +24,6 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
-
     const [animatedText, setAnimatedText] = useState('')
     const [currentIndex, setCurrentIndex] = useState(0)
     const text =
@@ -32,9 +31,9 @@ export default function Page() {
 
     // fetch from DB
     const getData = async () => {
-        const query = await fetch('/api/laws') 
+        const query = await fetch('/api/laws')
         const response = await query.json()
-        console.log('Response from API', response)
+        // console.log('Response from API', response)
     }
 
     useEffect(() => {
@@ -42,7 +41,6 @@ export default function Page() {
     }, [])
 
     useEffect(() => {
-
         let typingTimeout
 
         function typeText() {
@@ -61,8 +59,6 @@ export default function Page() {
                 clearTimeout(typingTimeout)
             }
         }
-
-
     }, [currentIndex])
 
     return (
@@ -72,18 +68,18 @@ export default function Page() {
                 <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
                     <p className='w-full font-mono uppercase'>Law of the Universe #27</p>
                     <h1 className='my-4 font-display text-5xl font-bold leading-tight'>SERENDIPITY</h1>
-                    <p className='mb-8 font-serif text-2xl italic leading-normal'>"The Law of Serendipity"</p>
+                    <p className='mb-8 font-serif text-2xl italic leading-normal'>The Law of Serendipity</p>
                 </div>
             </div>
             <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
                 <p className='animated-text mb-8 font-serif text-3xl leading-normal'>{animatedText}</p>
             </div>
-            <div className='mx-auto flex h-1/2 w-full flex-col flex-wrap items-end justify-between md:flex-row lg:w-4/5 font-mono'>
+            <div className='mx-auto flex h-1/2 w-full flex-col flex-wrap items-end justify-between font-mono md:flex-row lg:w-4/5'>
                 <button>Previous</button>
                 <button>Next</button>
             </div>
 
-            <View className='absolute top-0 flex h-[90%] w-full flex-col items-center justify-center z-[-1]'>
+            <View className='absolute top-0 z-[-1] flex h-[90%] w-full flex-col items-center justify-center'>
                 <Lemuria
                     scale={0.25}
                     position={[0, -1.5, 0]}

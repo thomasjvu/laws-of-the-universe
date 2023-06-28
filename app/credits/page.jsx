@@ -1,4 +1,4 @@
-import Menu from "@/components/Menu"
+import Menu from '@/components/Menu'
 
 const Page = () => {
     return (
@@ -23,7 +23,7 @@ const Page = () => {
                     <div className='flex flex-col'>
                         <h2 className='font-serif text-2xl font-extrabold'>Fonts</h2>
                         <p className='font-serif'>
-                            <a href='https://github.com/calcom/font' target="blank" className='underline'>
+                            <a href='https://github.com/calcom/font' target='blank' className='underline'>
                                 Cal Sans
                             </a>
                             : Sans
@@ -45,13 +45,13 @@ const Page = () => {
                             The{' '}
                             <a href='/' className='link underline'>
                                 Laws of the Universe
-                            </a>{' '} website
-                            is created by:{' '}
+                            </a>{' '}
+                            website is created by:{' '}
                             <a href='https://thomasjvu.com' className='link underline'>
                                 @thomasjvu
                             </a>{' '}
                             of{' '}
-                            <a href='https://ultima.gg' target='_blank' className="link underline">
+                            <a href='https://ultima.gg' target='_blank' className='link underline'>
                                 Ultima.gg
                             </a>
                             .
