@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import Menu from '@/components/Menu'
 import SocialIcons from '@/components/SocialIcons'
 import Link from 'next/link'
+import { SolarArrowRightBold, SolarMapArrowRightBold } from '@/components/Icons'
 
 const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
 const Lemuria = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Lemuria), { ssr: false })
@@ -35,8 +36,9 @@ export default function Page() {
                 <div className='flex w-full flex-col items-start justify-center rounded-2xl bg-stone-900 p-12 text-center text-white md:w-2/5 md:text-left'>
                     <p className='w-full font-serif uppercase italic'>Laws of the Universe —</p>
                     <h1 className='my-4 font-display text-7xl font-bold leading-tight tracking-widest'>LOTUS</h1>
-                    <Link href='/laws' className='mb-8 font-serif text-3xl leading-normal hover:text-stone-700'>
+                    <Link href='/laws' className='mb-8 font-serif text-3xl leading-normal hover:text-stone-700 flex items-center gap-5'>
                         Learn about the Laws of the Universe
+                        <SolarMapArrowRightBold />
                     </Link>
                     {/* social icons */}
                     <div className='flex w-full justify-end'>

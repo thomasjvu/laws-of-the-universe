@@ -40,7 +40,26 @@ const Page = () => {
                         </p>
                     </div>
                     <div className='flex flex-col'>
-                        <h2 className='font-serif text-2xl font-extrabold'>Web Development</h2>
+                        <h2 className='font-serif text-2xl font-extrabold'>Icons</h2>
+                        <p className='font-serif'>
+                            <a href='https://github.com/game-icons/icons' target='blank' className='underline'>
+                                Game Icons 
+                            </a>
+                            : Creative Commons by 3.0 License <a href="https://creativecommons.org/licenses/by/3.0/" className='link'>(Link)</a>
+                            <br />
+                            <a href='https://fonts.google.com/specimen/Crimson+Text' className='underline'>
+                                Simple Icons
+                            </a>
+                            : Creative Commons 0 - 1.0 Universal License <a href="https://creativecommons.org/publicdomain/zero/1.0/" className='link'>(Link)</a>
+                            <br />
+                            <a href='https://github.com/calcom/font' target='blank' className='underline'>
+                                Solar Icons 
+                            </a>
+                            : Creative Commons by 4.0 License <a href="https://creativecommons.org/licenses/by/4.0/" className='link'>(Link)</a>
+                        </p>
+                    </div>
+                    <div className='flex flex-col'>
+                        <h2 className='font-serif text-2xl font-extrabold'>Web Design & Development</h2>
                         <p className='font-serif'>
                             The{' '}
                             <a href='/' className='link underline'>
