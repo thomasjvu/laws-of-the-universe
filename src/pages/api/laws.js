@@ -4,8 +4,9 @@ export default function Handler(req, res) {
             id: 0,
             name: 'The Law of Attraction',
             short_name: 'Attraction',
+            quote: `"What you believe, you will attract"`,
             description:
-                "Positive or negative thoughts and intentions can attract corresponding experiences or outcomes into one's life.",
+                `Positive or negative thoughts and intentions can attract corresponding experiences or outcomes into one's life.`,
             source: 'The Kybalion',
             source_link: 'https://lawsoftheuniverse.com',
             other_names: [''],

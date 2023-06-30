@@ -100,7 +100,7 @@ export default function Page() {
                 </div>
             </div>
             <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-                <p className='animated-text mb-8 font-serif text-3xl leading-normal'>"{animatedText}"</p>
+                <p className='animated-text mb-8 font-serif text-3xl leading-normal'>{animatedText}</p>
             </div>
             {/* prev && next buttons should refetch the api and increment/decrement the index accordingly */}
             <div className='mx-auto flex h-1/2 w-full flex-col flex-wrap items-end justify-between font-mono md:flex-row lg:w-4/5'>
