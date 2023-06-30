@@ -33,7 +33,7 @@ export default function Page() {
 
     const [isName, setIsName] = useState('')
     const [isShortName, setIsShortName] = useState('')
-    const [isText, setIsText] = useState('')
+    const [isDescription, setIsDescription] = useState('')
 
     /* GET RANDOM */
     /* On clicking 3D model, randomize the index and refetch the API call. */
@@ -54,7 +54,8 @@ export default function Page() {
         setCurrentLaw(response[currentLaw].id)
         setIsName(response[currentLaw].name)
         setIsShortName(response[currentLaw].short_name)
-        setIsText(response[currentLaw].description)
+        setIsDescription(response[currentLaw].description)
+
 
         // console.log('isText:', isText)
         // console.log('currentLaw:', currentLaw)
@@ -73,9 +74,9 @@ export default function Page() {
     // Animate Law Description
     useEffect(() => {
 
-        if (textIndex < isText.length) {
+        if (textIndex < isDescription.length) {
             const typingTimeout = setTimeout(() => {
-                setAnimatedText((prevText) => prevText + isText[textIndex])
+                setAnimatedText((prevText) => prevText + isDescription[textIndex])
                 setTextIndex((prevIndex) => prevIndex + 1)
             }, 10)
 
@@ -86,7 +87,7 @@ export default function Page() {
                 }
             }
         }
-    }, [isText, textIndex])
+    }, [isDescription, textIndex])
 
     return (
         <>
@@ -99,14 +100,14 @@ export default function Page() {
                 </div>
             </div>
             <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-                <p className='animated-text mb-8 font-serif text-3xl leading-normal'>{animatedText}</p>
+                <p className='animated-text mb-8 font-serif text-3xl leading-normal'>"{animatedText}"</p>
             </div>
             {/* prev && next buttons should refetch the api and increment/decrement the index accordingly */}
             <div className='mx-auto flex h-1/2 w-full flex-col flex-wrap items-end justify-between font-mono md:flex-row lg:w-4/5'>
                 {(currentLaw > 0) ? (
                     <button onClick={() => setCurrentLaw(--currentLaw)}>Previous</button>
                 ) : (
-                    <p>-</p>
+                    <p></p>
                 ) 
                 }
                 {(currentLaw < 27) &&
