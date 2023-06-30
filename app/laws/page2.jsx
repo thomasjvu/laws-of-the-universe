@@ -24,94 +24,59 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
-    // animate text
-    const [textIndex, setTextIndex] = useState(0)
     const [animatedText, setAnimatedText] = useState('')
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const text =
+        '  When a person is open-minded, receptive, and aligned with the flow of the universe, they are more likely to encounter unexpected and positive synchronicities or meaningful coincidences.'
 
-    // spiritual law data
-    let [currentLaw, setCurrentLaw] = useState(0)
-
-    const [isName, setIsName] = useState('')
-    const [isShortName, setIsShortName] = useState('')
-    const [isText, setIsText] = useState('')
-
-    /* GET RANDOM */
-    /* On clicking 3D model, randomize the index and refetch the API call. */
-    // const getRandom = async () => {
-
-    // }
-
-    /* GET DATA FROM API */
-    // change index, text, quote, etc on getData.
+    // fetch from DB
     const getData = async () => {
         const query = await fetch('/api/laws')
         const response = await query.json()
-
-        // console.log('Current Text Index:', textIndex)
         // console.log('Response from API', response)
-        // console.log('Response Index Data', response[currentLaw])
-
-        setCurrentLaw(response[currentLaw].id)
-        setIsName(response[currentLaw].name)
-        setIsShortName(response[currentLaw].short_name)
-        setIsText(response[currentLaw].description)
-
-        // console.log('isText:', isText)
-        // console.log('currentLaw:', currentLaw)
-        // console.log('shortName:', isShortName)
-        // console.log('name:', isName)
-
-        setAnimatedText('') // Reset animatedText when updating isText
-        setTextIndex(0) // Reset textIndex
     }
 
-    // Refetch Data on currentLaw Update
     useEffect(() => {
         getData()
-    }, [currentLaw])
+    }, [])
 
-    // Animate Law Description
     useEffect(() => {
+        let typingTimeout
 
-        if (textIndex < isText.length) {
-            const typingTimeout = setTimeout(() => {
-                setAnimatedText((prevText) => prevText + isText[textIndex])
-                setTextIndex((prevIndex) => prevIndex + 1)
-            }, 10)
-
-            return () => {
-                if (typingTimeout) {
-                    // Clear the typing timeout when the component is unmounted
-                    clearTimeout(typingTimeout)
-                }
+        function typeText() {
+            if (currentIndex < text.length) {
+                setAnimatedText((prevText) => prevText + text[currentIndex])
+                setCurrentIndex((prevIndex) => prevIndex + 1)
+                typingTimeout = setTimeout(typeText, 2000)
             }
         }
-    }, [isText, textIndex])
+
+        typeText()
+
+        return () => {
+            if (typingTimeout) {
+                // Clear the typing timeout when the component is unmounted
+                clearTimeout(typingTimeout)
+            }
+        }
+    }, [currentIndex])
 
     return (
         <>
             <Menu />
             <div className='mx-auto flex max-h-screen w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5'>
                 <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-                    <p className='w-full font-mono uppercase'>Law of the Universe #{currentLaw}</p>
-                    <h1 className='my-4 font-display text-5xl font-bold leading-tight'>{isShortName.toUpperCase()}</h1>
-                    <p className='mb-8 font-serif text-2xl italic leading-normal'>{isName}</p>
+                    <p className='w-full font-mono uppercase'>Law of the Universe #27</p>
+                    <h1 className='my-4 font-display text-5xl font-bold leading-tight'>SERENDIPITY</h1>
+                    <p className='mb-8 font-serif text-2xl italic leading-normal'>The Law of Serendipity</p>
                 </div>
             </div>
             <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
                 <p className='animated-text mb-8 font-serif text-3xl leading-normal'>{animatedText}</p>
             </div>
-            {/* prev && next buttons should refetch the api and increment/decrement the index accordingly */}
             <div className='mx-auto flex h-1/2 w-full flex-col flex-wrap items-end justify-between font-mono md:flex-row lg:w-4/5'>
-                {(currentLaw > 0) ? (
-                    <button onClick={() => setCurrentLaw(--currentLaw)}>Previous</button>
-                ) : (
-                    <p>-</p>
-                ) 
-                }
-                {(currentLaw < 27) &&
-                    <button className="justify-self-end" onClick={() => setCurrentLaw(++currentLaw)}>Next</button>
-                }
+                <button>Previous</button>
+                <button>Next</button>
             </div>
 
             <View className='absolute top-0 z-[-1] flex h-[90%] w-full flex-col items-center justify-center'>
@@ -124,6 +89,7 @@ export default function Page() {
                 />
                 <Common color='' />
             </View>
+            {/* use json to navigate through previous and next? */}
         </>
     )
 }

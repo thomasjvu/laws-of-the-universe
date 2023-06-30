@@ -14,10 +14,6 @@ const Menu = () => {
     const [isHoveredEbooks, setIsHoveredEbooks] = useState(false)
     const [isHoveredCredits, setIsHoveredCredits] = useState(false)
 
-    // if isHovered, then show icon
-
-    // console.log('isToggledState', isToggled)
-
     return (
         <div className=''>
             {isToggled ? (
