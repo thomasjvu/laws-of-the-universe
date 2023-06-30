@@ -2,14 +2,16 @@
 
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
+import { useRouter } from 'next/navigation'
 
 import Menu from '@/components/Menu'
 import SocialIcons from '@/components/SocialIcons'
 import Link from 'next/link'
-import { SolarArrowRightBold, SolarMapArrowRightBold } from '@/components/Icons'
+import { SolarMapArrowRightBold } from '@/components/Icons'
 
-const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
-const Lemuria = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Lemuria), { ssr: false })
+// const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
+// const Lemuria = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Lemuria), { ssr: false })
+const Lotus = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Lotus), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
     ssr: false,
     loading: () => (
@@ -28,16 +30,19 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
+
+    const router = useRouter()
+
     return (
         <>
             <Menu />
-            <main className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5'>
+            <main className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5 justify-center'>
                 {/* jumbo */}
                 <div className='flex w-full flex-col items-start justify-center rounded-2xl bg-stone-900 p-12 text-center text-white md:w-2/5 md:text-left'>
                     <p className='w-full font-serif uppercase italic'>Laws of the Universe —</p>
-                    <h1 className='my-4 font-display text-7xl font-bold leading-tight tracking-widest'>LOTUS</h1>
+                    <h1 className='my-4 font-display text-7xl font-bold leading-tight tracking-widest'>L.O.T.U.S</h1>
                     <Link href='/laws' className='mb-8 font-serif text-3xl leading-normal hover:text-stone-700 flex items-center gap-5'>
-                        Learn about the Laws of the Universe
+                        Learn About Universal Spiritual Laws
                         <SolarMapArrowRightBold />
                     </Link>
                     {/* social icons */}
@@ -45,11 +50,10 @@ export default function Page() {
                         <SocialIcons />
                     </div>
                 </div>
-
                 <div className='w-full text-center md:w-3/5'>
-                    <View orbit className='flex h-screen w-full flex-col items-center justify-center'>
+                    <View className='flex h-screen w-full flex-col items-center justify-center'>
                         <Suspense fallback={null}>
-                            <Lemuria scale={0.75} position={[0, 0, 0]} />
+                            <Lotus scale={0.85} position={[0, -0.25, 0]} rotation={[0.2, 0, 0]} onClick={() => router.push('/laws')} className="cursor-pointer"/>
                             <Common />
                         </Suspense>
                     </View>

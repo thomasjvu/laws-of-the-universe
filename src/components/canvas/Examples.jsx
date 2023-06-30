@@ -89,3 +89,29 @@ export function Lemuria(props) {
 
   return <primitive object={scene} {...props} />
 }
+
+/* Lotus Flower */
+export function Lotus(props) {
+  const { scene } = useGLTF('/lotus.glb')
+
+  // const router = useRouter()
+  // const [hovered, hover] = useState(false)
+  // useCursor(hovered)
+
+  useFrame((state, delta) => {
+    // scene.rotation.x += delta * 0.25
+    scene.rotation.y += delta * 0.25
+    // scene.rotation.z += delta * 0.25
+  })
+
+  // modify material properties
+  scene.traverse((child) => {
+    if (child.isMesh) {
+      child.material.color.set('#1c1917')
+      child.material.transparent = true
+      child.material.opacity = 1
+    }
+  })
+
+  return <primitive object={scene} {...props} />
+}
