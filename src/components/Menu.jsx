@@ -9,6 +9,7 @@ const Menu = () => {
     const [isToggled, setIsToggled] = useState(false)
 
     const [isHoveredHome, setIsHoveredHome] = useState(false)
+    const [isHoveredAbout, setIsHoveredAbout] = useState(false)
     const [isHoveredLaws, setIsHoveredLaws] = useState(false)
     const [isHoveredStore, setIsHoveredStore] = useState(false)
     const [isHoveredEbooks, setIsHoveredEbooks] = useState(false)
@@ -24,7 +25,7 @@ const Menu = () => {
                             className='absolute right-2 top-2 z-[100] cursor-pointer text-2xl'
                         />
                         <div className='flex h-full w-full flex-col items-center justify-center'>
-                            <ul className='flex flex-col gap-16 font-serif text-4xl font-bold uppercase'>
+                            <ul className='flex flex-col gap-16 font-serif text-4xl font-bold uppercase w-1/4'>
                                 <Link
                                     href='/'
                                     className='flex justify-between hover:italic hover:text-stone-700'
@@ -35,16 +36,26 @@ const Menu = () => {
                                     {isHoveredHome && <SolarMapArrowRightBold />}
                                 </Link>
                                 <Link
+                                    href='/about'
+                                    className='flex justify-between hover:italic hover:text-stone-700'
+                                    onMouseEnter={() => setIsHoveredAbout(true)}
+                                    onMouseLeave={() => setIsHoveredAbout(false)}
+                                >
+                                    <li className=''>About</li>
+                                    {isHoveredAbout && <SolarMapArrowRightBold />}
+                                </Link>
+                                <Link
                                     href='/laws'
                                     className='flex justify-between hover:italic hover:text-stone-700'
                                     onMouseEnter={() => setIsHoveredLaws(true)}
                                     onMouseLeave={() => setIsHoveredLaws(false)}
                                 >
-                                    <li className=''>The Laws</li>
+                                    <li className=''>Laws</li>
                                     {isHoveredLaws && <SolarMapArrowRightBold />}
                                 </Link>
                                 <a
-                                    href='https://www.etsy.com/shop/LawOfTheUniverse'
+                                    // href='https://www.etsy.com/shop/LawOfTheUniverse'
+                                    href='/'
                                     target='_blank'
                                     className='flex justify-between hover:italic hover:text-stone-700'
                                     onMouseEnter={() => setIsHoveredStore(true)}
@@ -54,7 +65,7 @@ const Menu = () => {
                                     {isHoveredStore && <SolarMapArrowRightBold />}
                                 </a>
                                 <Link
-                                    href='/ebooks'
+                                    href='/'
                                     className='flex justify-between hover:italic hover:text-stone-700'
                                     onMouseEnter={() => setIsHoveredEbooks(true)}
                                     onMouseLeave={() => setIsHoveredEbooks(false)}
@@ -72,14 +83,14 @@ const Menu = () => {
                                     {isHoveredCredits && <SolarMapArrowRightBold />}
                                 </Link>
                                 {/* Search Bar */}
-                                <input
-                                    id=''
-                                    type='search'
-                                    name=''
-                                    className='rounded-full bg-black px-8 py-4 font-mono text-3xl italic text-white'
-                                    placeholder='search...'
-                                    disabled
-                                />
+                                {/* <input */}
+                                {/*     id='' */}
+                                {/*     type='search' */}
+                                {/*     name='' */}
+                                {/*     className='rounded-full bg-black px-8 py-4 font-mono text-3xl italic text-white' */}
+                                {/*     placeholder='search...' */}
+                                {/*     disabled */}
+                                {/* /> */}
                                 {/* Social Icons */}
                                 <div class='flex justify-center text-3xl'>
                                     <SocialIcons />
