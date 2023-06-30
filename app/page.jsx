@@ -39,7 +39,7 @@ export default function Page() {
             <main className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5 justify-center'>
                 {/* jumbo */}
                 <div className='flex w-full flex-col items-start justify-center rounded-2xl bg-stone-900 p-12 text-center text-white md:w-2/5 md:text-left'>
-                    <p className='w-full font-serif uppercase italic'>Laws of the Universe —</p>
+                    <p className='w-full font-serif uppercase italic text-xl'>Laws of the Universe —</p>
                     <h1 className='my-4 font-display text-7xl font-bold leading-tight tracking-widest'>L.O.T.U.S</h1>
                     <Link href='/laws' className='mb-8 font-serif text-3xl leading-normal hover:text-stone-700 flex items-center gap-5'>
                         Learn About Universal Spiritual Laws

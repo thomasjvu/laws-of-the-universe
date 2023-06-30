@@ -1,4 +1,4 @@
-const title = 'LOTUS | Laws of the Universe'
+const title = 'Laws of the Universe | LOTUS'
 const url = 'https://lawsoftheuniverse.xyz/'
 const description = 'Learn about the Universal Laws'
 const author = 'Kyōma'
