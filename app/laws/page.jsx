@@ -104,13 +104,13 @@ export default function Page() {
             {/* prev && next buttons should refetch the api and increment/decrement the index accordingly */}
             <div className='mx-auto flex h-1/2 w-full flex-col flex-wrap items-end justify-between font-mono md:flex-row lg:w-4/5'>
                 {(currentLaw > 0) ? (
-                    <button className="z-10" onClick={() => setCurrentLaw(--currentLaw)}>Previous</button>
+                    <button className="z-10" onClick={() => setCurrentLaw(--currentLaw)}>⟵ Previous</button>
                 ) : (
                     <p></p>
                 ) 
                 }
                 {(currentLaw < 27) &&
-                    <button className="z-10" onClick={() => setCurrentLaw(++currentLaw)}>Next</button>
+                    <button className="z-10" onClick={() => setCurrentLaw(++currentLaw)}>Next ⟶</button>
                 }
             </div>
 
